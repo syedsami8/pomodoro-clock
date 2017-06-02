@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|PT+Sans|Bad+Script|Barrio');
+
+/*
+font-family: 'Open Sans Condensed', sans-serif;
+font-family: 'PT Sans', sans-serif;
+font-family: 'Bad Script', cursive;
+
+*/
+
+* {
+    margin: 0px;
+    padding: 0px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: black;
+}
+
+.container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+/*    border: red solid 1px;*/
+    height: 100vh;
+}
+
+.item {
+    -ms-flex-item-align: center;
+    align-self: center;
+/*    border: red solid 1px;*/
+}
+
+.timer {
+    margin: auto;
+/*    border: red solid 1px;*/
+}
+
+.timer p {
+    text-align: center;
+    color: #ddd;
+    /*        min-width: 300px;*/
+    /*    font-family: 'PT Sans', sans-serif;*/
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: 100;
+    font-size: 120px;
+    padding: 30px;
+/*    text-shadow: 5px 2px 0px rgb(255, 255, 255);*/
+/*    border: red solid 1px;*/
+}
+
+.bscont {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+/*    font-family: 'PT Sans', sans-serif;*/
+/*    font-family: 'Bad Script', cursive;*/
+/*font-family: 'Open Sans Condensed', sans-serif;*/
+    
+    
+}
+
+.cc {
+    margin: auto;
+    width: 400px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+/*    border: green solid 1px;*/
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.scont {
+    color: white;
+    /*    margin-right: auto;*/
+/*    border: red solid 1px;*/
+    padding: 10px;
+    text-align: center;
+    min-width: 100px;
+}
+
+.scrtl,
+.bcrtl {
+    padding-top: 5px;
+font-family: 'Open Sans Condensed', sans-serif;
+    
+    font-size: 27px;
+}
+
+.spacing {
+    padding: 0px 10px;
+}
+
+.bcont {
+    color: white;
+/*    border: red solid 1px;*/
+    padding: 10px;
+    min-width: 100px;
+    text-align: center;
+}
+
+.bname,
+.sname {
+    font-size: 30px;
+    font-family: 'Barrio', cursive;
+}
+
+.sname {
+	color: #76FF03;
+}
+
+.noonecanfuckingselectit {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.ss {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.control {
+    margin: 50px auto;
+    min-width: 200px;
+ display: -webkit-box;
+ display: -ms-flexbox;
+ display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+}
+
+.sminus,
+.bminus,
+.bplus,
+.splus {
+    cursor: pointer;
+}
+
+.pnpcont , .repcont{
+    border-radius: 70%;
+    width: 70px;
+    height: 70px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    
+}
+
+.pnpcont:hover , .repcont:hover {
+    -webkit-transform: translateY(-2px);
+    transform: translateY(-2px);
+}
+
+.pnp ,.rep {
+    -webkit-transition: src 3s ease;
+    transition: src 3s ease;
+    outline: 0;
+}
+
+.pnpcont {
+    background-color: rgb(41,121,255);
+}
+
+.repcont {
+/*    background-color:rgb(64,196,255);*/
+        background-color: #C2185B;
+}
+sub{
+    font-size: 15px;
+}
