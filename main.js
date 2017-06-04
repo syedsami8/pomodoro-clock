@@ -2,60 +2,99 @@ $(document).ready(function () {
 
     /*
     TODO:
-    1) disable counter when clock running and enable when its paused
-    2) fix timer after one cycl3 tldr fix restart
-    3) optimize for mobile
-    4) add mute button
-    
+    1) [done]--> disable counter(-1+) when clock running and enable when its paused 
+    2) [done]--> fix break counter , its not udapting value i.e, retaining old value; 
+    3) [done]--> fix timer after one cycl3 tldr; fix restart
+    4) optimize for mobile
+    5) add mute button
+
     optional:
     + night mode
     */
 
-    var timer = 1;
-    var isPaused = true;
-    var alarm = new Audio("alarm.mp3");
-    var hs = new Audio("hour.mp3");
-    var minutes = 0,
+    var timer = 1,
+        bcount = 5,
+        scount = 25,
+        bvalue = bcount,
+        scount = scount,
+        sesVal = scount,
+        brkVal = bcount,
+        sesOff = sesVal - 1,
+        secOff = 60,
+        brkOff = brkVal - 1,
+        minutes = 0,
         hours = 0,
         seconds = 00;
 
+
+    var isPaused = true,
+        brkbool = true,
+        running = false,
+        timerFlag = true,
+        repeatFlag = false, //
+        isBrkOn = false, // to indicate the current timer light of break and is used for session vice versa
+        isDisabled = false; // for counter controls , disabled or not
+
+
+    var alarm = new Audio("alarm.mp3"),
+        hs = new Audio("hour.mp3");
+
+
+
     //    console.log(sesVal);
     //    console.log(brkVal);
-    var brkbool = true;
-    var running = false;
-    var bcount = 1;
-    var scount = 1;
+
+
     $('.timer p').html(scount);
     $('.break').html(bcount);
     $('.session').html(scount);
-    var sesVal = scount;
-    var brkVal = bcount;
-    var sesOff = sesVal - 1;
-    var secOff = 60;
-    var brkOff = brkVal - 1;
-    var timerFlag = true; //
-    var repeatFlag = false; //
-    var isBrkOn = false; // to indicate the current timer light of break and is used for session vice versa
+
+
 
     function bupdate() {
+        bvalue = bcount;
         brkVal = bcount;
-        brkOff = brkVal - 1;
-        secOff = 60;
+        if (isBrkOn) {
+            sesVal = bcount;
+            sesOff = sesVal - 1;
+            secOff = 60;
+        } else {
+            brkVal = bcount;
+            brkOff = brkVal - 1;
+            secOff = 60;
+        }
     }
 
     function supdate() {
+        svalue = scount;
         sesVal = scount;
         sesOff = sesVal - 1;
         secOff = 60;
     }
 
     function changeIndicatorLight() {
+        $('.bname').css('color', 'white');
+        $('.sname').css('color', 'white');
         if (!isBrkOn) {
             $('.sname').css('color', '#76FF03');
             $('.bname').css('color', 'white');
         } else {
             $('.bname').css('color', '#76FF03');
             $('.sname').css('color', 'white');
+        }
+    }
+
+    function changeDisabled() {
+        if (isDisabled) {
+            $('.bplus,.bminus,.splus,.sminus').css({
+                'color': '#484848',
+                'cursor': 'not-allowed'
+            });
+        } else {
+            $('.bplus,.bminus,.splus,.sminus').css({
+                'color': '#ddd',
+                'cursor': 'pointer'
+            });
         }
     }
 
@@ -85,16 +124,23 @@ $(document).ready(function () {
                         isBrkOn = false;
                         changeIndicatorLight();
                     } else {
-                        $('.pnp').attr('src','playwhite.png');
-                        $('.timer p').html('JOB DONE!<sub>Created by Syed Samiuddin</sub>');
+                        $('.pnp').attr('src', 'playwhite.png');
+                        //                        $('.timer p').append('<sub>Created by Syed Samiuddin</sub>');
                         alarm.play();
                         $('.sname').css('color', '#E53935');
                         $('.bname').css('color', '#E53935');
-                        console.log("sesval : "+sesVal+", scount : "+scount+", hours : "+hours+", sesOff :"+sesOff);
-                        console.log("brkval : "+brkVal+", bcount : "+bcount+", hours : "+hours+", brkOff : "+brkOff);
-                        console.log("isPaused : "+isPaused);
+                        console.log("sesval : " + sesVal + ", scount : " + scount + ", hours : " + hours + ", sesOff :" + sesOff);
+                        console.log("brkval : " + brkVal + ", bcount : " + bcount + ", hours : " + hours + ", brkOff : " + brkOff);
+                        console.log("isPaused : " + isPaused);
                         isPaused = true;
+                        isDisabled = false;
+                        changeDisabled();
+                        brkbool = true;
+                        isBrkOn = false;
+                        
                         secOff = 60;
+                        bcount = bvalue;
+                        scount = svalue;
                         clearInterval(timeVal);
                     }
 
@@ -132,7 +178,6 @@ $(document).ready(function () {
     $('.pnp').click(function () {
         if (!isPaused) {
             $(this).attr('src', 'playwhite.png');
-
         } else {
             $(this).attr('src', 'pausewhite.png');
         }
@@ -148,49 +193,60 @@ $(document).ready(function () {
             clearInterval(timeVal);
             running = false;
         }
+
         running = true;
         isPaused = !isPaused;
-        console.log(isPaused);
+        isDisabled = !isDisabled;
+        changeDisabled();
+        changeIndicatorLight();
+        console.log("Paused : " + isPaused);
+        console.log("isDisabled :" + isDisabled);
         timeVal = setInterval(p, 1000);
 
     });
 
     $('.bminus').click(function () {
-        if (bcount >= 2)
+        if (bcount >= 2 && !isDisabled) {
             bcount--;
-        $('.timer p').html(bcount);
+            $('.timer p').html(bcount);
+            $('.break').html(bcount);
+            bupdate();
+        }
 
-        $('.break').html(bcount);
-        bupdate();
         //        console.log("break : " + brkVal);
     });
 
     $('.bplus').click(function () {
-        bcount++;
-        $('.timer p').html(bcount);
+        if (!isDisabled) {
+            bcount++;
+            $('.timer p').html(bcount);
+            $('.break').html(bcount);
+            bupdate();
+        }
 
-        $('.break').html(bcount);
-        bupdate();
         //        console.log("break : " + brkVal);
 
     });
     $('.splus').click(function () {
-        scount++;
+        if (!isDisabled) {
+            scount++;
+            $('.timer p').html(scount);
+            $('.session').html(scount);
+            supdate();
+        }
 
-        $('.timer p').html(scount);
 
-        $('.session').html(scount);
-        supdate();
         //        console.log("session : " + sesVal);
 
     });
     $('.sminus').click(function () {
-        if (scount >= 2)
+        if (scount >= 2 && !isDisabled) {
             scount--;
-        $('.timer p').html(scount);
+            $('.timer p').html(scount);
+            $('.session').html(scount);
+            supdate();
+        }
 
-        $('.session').html(scount);
-        supdate();
         //        console.log("session : " + sesVal);
 
     });
@@ -206,7 +262,7 @@ $(document).ready(function () {
         }
         repclick = !repclick;
         repeatFlag = !repeatFlag;
-        console.log(repeatFlag);
+        console.log("Repeat : " + repeatFlag);
     });
 
 });

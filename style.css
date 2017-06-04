@@ -32,19 +32,19 @@ html {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
-/*    border: red solid 1px;*/
+    /*    border: red solid 1px;*/
     height: 100vh;
 }
 
 .item {
     -ms-flex-item-align: center;
     align-self: center;
-/*    border: red solid 1px;*/
+    /*    border: red solid 1px;*/
 }
 
 .timer {
     margin: auto;
-/*    border: red solid 1px;*/
+    /*    border: red solid 1px;*/
 }
 
 .timer p {
@@ -54,21 +54,19 @@ html {
     /*    font-family: 'PT Sans', sans-serif;*/
     font-family: 'Open Sans Condensed', sans-serif;
     font-weight: 100;
-    font-size: 120px;
+    font-size: 15vw;
     padding: 30px;
-/*    text-shadow: 5px 2px 0px rgb(255, 255, 255);*/
-/*    border: red solid 1px;*/
+    /*    text-shadow: 5px 2px 0px rgb(255, 255, 255);*/
+    /*    border: red solid 1px;*/
 }
 
 .bscont {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-/*    font-family: 'PT Sans', sans-serif;*/
-/*    font-family: 'Bad Script', cursive;*/
-/*font-family: 'Open Sans Condensed', sans-serif;*/
-    
-    
+    /*    font-family: 'PT Sans', sans-serif;*/
+    /*    font-family: 'Bad Script', cursive;*/
+    /*font-family: 'Open Sans Condensed', sans-serif;*/
 }
 
 .cc {
@@ -81,7 +79,7 @@ html {
     -webkit-box-direction: normal;
     -ms-flex-direction: row;
     flex-direction: row;
-/*    border: green solid 1px;*/
+    /*    border: green solid 1px;*/
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
@@ -90,7 +88,7 @@ html {
 .scont {
     color: white;
     /*    margin-right: auto;*/
-/*    border: red solid 1px;*/
+    /*    border: red solid 1px;*/
     padding: 10px;
     text-align: center;
     min-width: 100px;
@@ -99,8 +97,7 @@ html {
 .scrtl,
 .bcrtl {
     padding-top: 5px;
-font-family: 'Open Sans Condensed', sans-serif;
-    
+    font-family: 'Open Sans Condensed', sans-serif;
     font-size: 27px;
 }
 
@@ -110,7 +107,7 @@ font-family: 'Open Sans Condensed', sans-serif;
 
 .bcont {
     color: white;
-/*    border: red solid 1px;*/
+    /*    border: red solid 1px;*/
     padding: 10px;
     min-width: 100px;
     text-align: center;
@@ -123,7 +120,7 @@ font-family: 'Open Sans Condensed', sans-serif;
 }
 
 .sname {
-	color: #76FF03;
+    color: #76FF03;
 }
 
 .noonecanfuckingselectit {
@@ -142,16 +139,16 @@ font-family: 'Open Sans Condensed', sans-serif;
 .control {
     margin: 50px auto;
     min-width: 200px;
- display: -webkit-box;
- display: -ms-flexbox;
- display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
     -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
 }
 
 .sminus,
@@ -159,9 +156,11 @@ font-family: 'Open Sans Condensed', sans-serif;
 .bplus,
 .splus {
     cursor: pointer;
+    -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
 }
 
-.pnpcont , .repcont{
+.pnpcont,
+.repcont {
     border-radius: 70%;
     width: 70px;
     height: 70px;
@@ -177,28 +176,92 @@ font-family: 'Open Sans Condensed', sans-serif;
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
     cursor: pointer;
-    
 }
 
+
+/*
 .pnpcont:hover , .repcont:hover {
     -webkit-transform: translateY(-2px);
     transform: translateY(-2px);
 }
+*/
 
-.pnp ,.rep {
+.pnp,
+.rep {
+    /*
     -webkit-transition: src 3s ease;
     transition: src 3s ease;
+*/
     outline: 0;
 }
 
+
+
 .pnpcont {
-    background-color: rgb(41,121,255);
+    background-color: rgb(41, 121, 255);
 }
 
 .repcont {
-/*    background-color:rgb(64,196,255);*/
-        background-color: #C2185B;
+    /*    background-color:rgb(64,196,255);*/
+    background-color: #C2185B;
 }
-sub{
+
+sub {
     font-size: 15px;
+}
+
+@media only screen and (max-width:500px) {
+    html {
+        overflow: hidden;
+    }
+    .container {
+        width: 100%;
+        height: 90vh;
+    }
+    .bname,
+    .sname {
+        font-size: 26px;
+        font-family: 'Barrio', cursive;
+    }
+    .cc {
+        justify-content: center;
+        width: 100%;
+    }
+    .bcont,
+    .scont {
+        padding: 20px 30px;
+
+    }
+    .bplus,
+    .bminus,
+    .splus,
+    .sminus {
+        font-size: 9vw;
+    }
+    .pnp,
+    .rep {
+        width: 40px;
+        height: 40px;
+        outline: 0;
+
+    }
+    
+    .timer p {
+        font-size: 22vw;
+    }
+    .pnpcont,
+    .repcont {
+        border-radius: 70%;
+        width: 70px;
+        height: 70px;
+        cursor: pointer;
+        -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
+    }
+    .spacing {
+	padding: 0px 20px; 
+}
+    .break,.session {
+	 font-size: 7vw;
+}
+    
 }
