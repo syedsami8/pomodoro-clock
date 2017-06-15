@@ -137,10 +137,11 @@ $(document).ready(function () {
                         changeDisabled();
                         brkbool = true;
                         isBrkOn = false;
-                        
+
                         secOff = 60;
                         bcount = bvalue;
                         scount = svalue;
+                        $(document).prop('title','Time Up!!');
                         clearInterval(timeVal);
                     }
 
@@ -156,15 +157,20 @@ $(document).ready(function () {
                 sesOff--;
                 if (hours > 0) {
                     $('.timer p').html(('0' + hours).slice(-(hours.toString().length)) + ":" + ('0' + sesOff).slice(-2) + ":" + ('0' + secOff).slice(-2));
+                    $(document).prop('title', ('0' + hours).slice(-(hours.toString().length)) + ":" + ('0' + sesOff).slice(-2) + ":" + ('0' + secOff).slice(-2));
                 } else {
                     $('.timer p').html(('0' + sesOff).slice(-2) + ":" + ('0' + secOff).slice(-2));
+                    $(document).prop('title', ('0' + sesOff).slice(-2) + ":" + ('0' + secOff).slice(-2));
                 }
             } else {
                 secOff--;
                 if (hours > 0) {
                     $('.timer p').html(('0' + hours).slice(-(hours.toString().length)) + ":" + ('0' + sesOff).slice(-2) + ":" + ('0' + secOff).slice(-2));
+                    $(document).prop('title', ('0' + hours).slice(-(hours.toString().length)) + ":" + ('0' + sesOff).slice(-2) + ":" + ('0' + secOff).slice(-2));
                 } else {
                     $('.timer p').html(('0' + sesOff).slice(-2) + ":" + ('0' + secOff).slice(-2));
+                    $(document).prop('title', ('0' + sesOff).slice(-2) + ":" + ('0' + secOff).slice(-2));
+
                 }
             }
 

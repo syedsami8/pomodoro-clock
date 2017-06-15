@@ -156,7 +156,7 @@ html {
 .bplus,
 .splus {
     cursor: pointer;
-    -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
 .pnpcont,
@@ -195,8 +195,6 @@ html {
     outline: 0;
 }
 
-
-
 .pnpcont {
     background-color: rgb(41, 121, 255);
 }
@@ -206,9 +204,6 @@ html {
     background-color: #C2185B;
 }
 
-sub {
-    font-size: 15px;
-}
 
 @media only screen and (max-width:500px) {
     html {
@@ -230,7 +225,6 @@ sub {
     .bcont,
     .scont {
         padding: 20px 30px;
-
     }
     .bplus,
     .bminus,
@@ -243,9 +237,7 @@ sub {
         width: 40px;
         height: 40px;
         outline: 0;
-
     }
-    
     .timer p {
         font-size: 22vw;
     }
@@ -255,13 +247,13 @@ sub {
         width: 70px;
         height: 70px;
         cursor: pointer;
-        -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
     }
     .spacing {
-	padding: 0px 20px; 
-}
-    .break,.session {
-	 font-size: 7vw;
-}
-    
+        padding: 0px 20px;
+    }
+    .break,
+    .session {
+        font-size: 7vw;
+    }
 }
